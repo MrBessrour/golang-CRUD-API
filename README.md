@@ -1,6 +1,6 @@
 <h2> crud restful api with golang , gorm , gin and mysql </h2>
 this api does a simple CRUD operations on a single table mysql Database .<br>
-this is build on top off gin framwork [link to gin!](https://github.com/gin-gonic/gin) and GORM  library [GitHub Pages](https://pages.github.com/). .<br> 
+this is build on top off gin framwork [link to gin!](https://github.com/gin-gonic/gin) and GORM  library [GitHub Pages](https://pages.github.com/). \
 the api use different HTTP methods ( GET, POST, PUT, PATCH, and DELETE ) <br>
 
 you need to clone gin and gorm to make this work correctly<br>
