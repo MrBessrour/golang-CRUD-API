@@ -8,9 +8,10 @@ this is build on top off gin framwork  and GORM  library <br/>
 
 the api use different HTTP methods ( GET, POST, PUT, PATCH, and DELETE ) <br>
 
-* you need to clone gin and gorm to make this work correctly<br>
-* you need to have mysql installed in your machine ( install xampp if you don't have ) <br><br>
-* create a new empty database and call it 'CRUD' <br/>
+to make this work correctly you need to :
+* you need to clone gin and gorm <br/>
+* you need to have mysql installed in your machine ( install xampp if you don't have ) <br/>
+* create a new empty database and call it 'CRUD' <br/><br/>
 
 to add the gin framwork (copy and past this into ur terminal)
 ```Go
