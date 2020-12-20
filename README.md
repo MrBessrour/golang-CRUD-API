@@ -1,4 +1,5 @@
 <h2> crud restful api with golang , gorm , gin and mysql </h2>
+<hr>
 this api does a simple CRUD operations on a single table mysql Database .<br/>
 this is build on top off gin framwork  and GORM  library <br/>
 
