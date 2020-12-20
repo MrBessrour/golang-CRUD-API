@@ -21,3 +21,6 @@ to add the GORM library (copy and past this into ur terminal)
 ```GO
 go get "https://github.com/go-gorm/gorm"
 ```
+
+if you found this helpful somehow , credit me as Brahim Bessrour . <br/>
+play my latest game [here](https://play.google.com/store/apps/details?id=bes.dodgy.walls) .
