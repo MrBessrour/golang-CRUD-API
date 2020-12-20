@@ -14,3 +14,4 @@ to add the GORM library (copy and past this into ur terminal)
 go get "https://github.com/go-gorm/gorm"
 ```
 
+[link to GORM!](https://github.com/go-gorm/gorm/) 
