@@ -39,6 +39,7 @@ func main() {
 	server.POST("/posts", Store)
 	server.PATCH("/posts/:id", Update)
 	server.DELETE("/posts/:id", Delete)
+	server.POST("/upload", Upload)
 
 	//start the server and listen on the port 8000
 	server.Run(":8000")

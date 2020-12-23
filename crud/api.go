@@ -10,6 +10,7 @@ import (
 
 //select query with limit and offset
 func Posts(c *gin.Context) {
+	c.Header("Access-Control-Allow-Origin", "*")
 	limit, _ := strconv.Atoi(c.DefaultQuery("limit", "10"))
 	offset, _ := strconv.Atoi(c.DefaultQuery("offset", "0"))
 
@@ -24,6 +25,7 @@ func Posts(c *gin.Context) {
 
 //showing a post with it's id passed in the URL with a GET request
 func Show(c *gin.Context) {
+	c.Header("Access-Control-Allow-Origin", "*")
 	post := getById(c)
 	c.JSON(http.StatusOK, gin.H{
 		"messege": "",
@@ -34,6 +36,7 @@ func Show(c *gin.Context) {
 
 //storing a mew post to the db with a POST request with
 func Store(c *gin.Context) {
+	c.Header("Access-Control-Allow-Origin", "*")
 	var post Post
 	if err := c.ShouldBindJSON(&post); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{
@@ -52,6 +55,7 @@ func Store(c *gin.Context) {
 
 //delete a post by it's id
 func Delete(c *gin.Context) {
+	c.Header("Access-Control-Allow-Origin", "*")
 	post := getById(c)
 	if post.ID == 0 {
 		return
@@ -66,6 +70,7 @@ func Delete(c *gin.Context) {
 
 //update a post with a Ptach request , the id sent in the URL
 func Update(c *gin.Context) {
+	c.Header("Access-Control-Allow-Origin", "*")
 	oldpost := getById(c)
 	var newpost Post
 	if err := c.ShouldBindJSON(&newpost); err != nil {
@@ -90,7 +95,33 @@ func Update(c *gin.Context) {
 
 }
 
+//upload a file from a form with a POST request
+func Upload(c *gin.Context) {
+	c.Header("Access-Control-Allow-Origin", "*")
+	file, err := c.FormFile("file")
+
+	//handel the err
+	if err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{
+			"messege": err.Error(),
+			"data":    "",
+		})
+		return
+	}
+	//uploading the file
+	c.SaveUploadedFile(file, file.Filename)
+
+	c.JSON(http.StatusOK, gin.H{
+		"messege": "file Uploaded",
+		"data":    file.Filename,
+	})
+
+	//c.String(http.StatusOK, fmt.Sprintf("'%s' uploaded!", file.Filename))
+}
+
+//retrun a post by it's id | if the id is 0 -> post does not exist
 func getById(c *gin.Context) Post {
+	c.Header("Access-Control-Allow-Origin", "*")
 	id := c.Param("id")
 	var post Post
 	db.First(&post, id)
